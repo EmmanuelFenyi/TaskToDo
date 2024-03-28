@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1b1bfb19.css",
+    "main.js": "/static/js/main.7622c232.js",
+    "static/media/cover-image.jpg": "/static/media/cover-image.9d18af0671e1c2820fd1.jpg",
+    "static/media/taskManagePage.JPG": "/static/media/taskManagePage.3bd9d9a95abac1e1247a.JPG",
+    "static/media/authPage.JPG": "/static/media/authPage.757d9602ef9888fbca87.JPG",
+    "static/media/taskDetailsPage.JPG": "/static/media/taskDetailsPage.5e43dd5a7b83f570fb04.JPG",
+    "index.html": "/index.html",
+    "main.1b1bfb19.css.map": "/static/css/main.1b1bfb19.css.map",
+    "main.7622c232.js.map": "/static/js/main.7622c232.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b1bfb19.css",
+    "static/js/main.7622c232.js"
+  ]
+}
