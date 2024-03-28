@@ -1,36 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import './TaskDetail.css';
-
-// function TaskDetail({ match }) {
-//   const [task, setTask] = useState({});
-
-//   useEffect(() => {
-//     fetchTask();
-//   }, []);
-
-//   const fetchTask = async () => {
-//     try {
-//       const response = await fetch(`/api/tasks/${match.params.id}`);
-//       const data = await response.json();
-//       setTask(data);
-//     } catch (error) {
-//       console.error('Error fetching task:', error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h2>Task Detail</h2>
-//       <p>Title: {task.title}</p>
-//       <p>Description: {task.description}</p>
-//     </div>
-//   );
-// }
-
-// export default TaskDetail;
-
-
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import './TaskDetail.css';
@@ -102,27 +69,33 @@ const TaskDetail = () => {
 
   return (
     <div>
-      <h2>Task Detail</h2>
+      <h2>Enter New Task Details</h2>
       <div>
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          placeholder="Enter Task Title"
         />
         <input
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          placeholder="Enter Task Description"
         />
         <input
           type="date"
           value={dueDate}
           onChange={(e) => setDueDate(e.target.value)}
+        //   placeholder="Set Due Date"
         />
         <input
+        //   type="select"
+        //   options="urgent, not urgent"
           type="text"
           value={priority}
           onChange={(e) => setPriority(e.target.value)}
+          placeholder="Set Task Priority"
         />
         <input
           type="checkbox"
@@ -130,7 +103,7 @@ const TaskDetail = () => {
           onChange={(e) => setCompleted(e.target.checked)}
         />
         <button onClick={handleEditTask}>Save</button>
-        <button onClick={handleDeleteTask}>Delete</button>
+        {/* <button onClick={handleDeleteTask}>Delete</button> */}
       </div>
     </div>
   );

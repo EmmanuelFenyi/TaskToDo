@@ -32,7 +32,8 @@ exports.loginUser = async (req, res) => {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+    // const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userId: user._id }, "43677", {
       expiresIn: '1h', // Token expires in 1 hour
     });
 
@@ -53,3 +54,15 @@ exports.logoutUser = (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+exports.listUsers = async (req, res) => {
+  try {
+    let users = await User.find().select('username email updatedAt createdAt')
+    res.json(users)
+  } catch (err) {
+    return res.status(400).json({
+      // error: errorHandler.getErrorMessage(err)
+      error: "error occured"
+    })
+  }
+}

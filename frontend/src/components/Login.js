@@ -1,110 +1,30 @@
-import React, { useState } from 'react';
-import './Login.css';
+import React from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
-function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+import Navigation from "./Navigation";
+import './Auth.css'; // Import shared authentication styles
 
+const Login = () => {
+  let navigate = useNavigate();
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-      if (response.ok) {
-        // Redirect or perform necessary actions upon successful login
-        console.log('Login successful');
-      } else {
-        console.error('Login failed');
-      }
-    } catch (error) {
-      console.error('Error logging in:', error);
-    }
+    navigate("/tasks", { replace: true });
   };
 
   return (
     <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
+      <Navigation link="/register" caption="Register"/>
+      <div className="auth-container">
+        <h2>Login to TaskToDo</h2>
+        <form onSubmit={handleSubmit}>
+          <input type="text" placeholder="Username" />
+          <input type="password" placeholder="Password" />
+          <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <Link to="/register">Register</Link></p>
+      </div>
     </div>
   );
 }
 
 export default Login;
 
-
-// import React, { useState } from 'react';
-// import './Login.css';
-
-// const Login = () => {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const response = await fetch('/api/auth/login', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({ email, password }),
-//       });
-//       if (response.ok) {
-//         const { token } = await response.json();
-//         sessionStorage.setItem('token', token);
-//         // Redirect or perform necessary actions upon successful login
-//         console.log('Login successful');
-//       } else {
-//         console.error('Login failed');
-//       }
-//     } catch (error) {
-//       console.error('Error logging in:', error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h2>Login</h2>
-//       <form onSubmit={handleSubmit}>
-//         <input
-//           type="email"
-//           placeholder="Email"
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//           required
-//         />
-//         <input
-//           type="password"
-//           placeholder="Password"
-//           value={password}
-//           onChange={(e) => setPassword(e.target.value)}
-//           required
-//         />
-//         <button type="submit">Login</button>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default Login;

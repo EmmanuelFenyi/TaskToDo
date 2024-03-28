@@ -1,4 +1,57 @@
-.container {
+/* Register.css */
+
+.register-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.register-container h2 {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.auth-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* .container {
     width: 300px;
     margin: auto;
   }
@@ -32,4 +85,4 @@
   
   button:hover {
     background-color: #218838;
-  }
+  } */
